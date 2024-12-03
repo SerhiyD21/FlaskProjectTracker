@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Головна{% endblock %}
+{% block content %}
+<div class="text-center bg-gray-50 py-12">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Ласкаво просимо до системи управління задачами та проектами</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/tasks" class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2">Задачі</h2>
+            <p class="text-gray-600">Переглянути всі задачі</p>
+        </a>
+        <a href="/projects" class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2">Проекти</h2>
+            <p class="text-gray-600">Переглянути всі проекти</p>
+        </a>
+        <a href="/users" class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2">Користувачі</h2>
+            <p class="text-gray-600">Управління користувачами</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

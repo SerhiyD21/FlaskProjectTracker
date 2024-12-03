@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Додати задачу{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-6">Додати задачу</h1>
+    
+    <form method="POST" class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Назва задачі</label>
+            <input type="text" name="name" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Опис</label>
+            <textarea name="description" required
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Дата початку</label>
+            <input type="date" name="start_date" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Дедлайн</label>
+            <input type="date" name="deadline" required
+                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Пріоритет</label>
+            <select name="priority" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                <option value="low">Низький</option>
+                <option value="medium">Середній</option>
+                <option value="high">Високий</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Виконавець</label>
+            <select name="assignee_id" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                {% for user in users %}
+                <option value="{{ user._id }}">{{ user.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Проект</label>
+            <select name="project_id" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                {% for project in projects %}
+                <option value="{{ project._id }}">{{ project.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="flex justify-end space-x-4">
+            <a href="/tasks" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                Скасувати
+            </a>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Зберегти
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
